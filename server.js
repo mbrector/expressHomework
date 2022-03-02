@@ -23,6 +23,10 @@ app.get('/greeting/:name', (req, res) => {
     res.render('template', { title: 'Greeting', message: 'Hello, stranger!', content: 'Welcome, ' + req.params.name + ', nice to see you!' })
 })
 
+app.get('/tip/:total/:tipPercentage', (req, res) => {
+  res.render('template', { title: 'Tip', message: 'Your tip should be:', content: req.params.total * (req.params.tipPercentage)/100 })
+})
+
 
 app.listen(port,() => {
     console.log('I am listening on port' , port);
